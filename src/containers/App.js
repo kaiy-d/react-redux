@@ -6,16 +6,22 @@ import TodoList from '../components/TodoList';
 import * as todoListActions from '../actions/TodoListActions';
 // import * as visibilityFilterActions from '../actions/visibilityFilterActions';
 
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const muiTheme = getMuiTheme(lightBaseTheme);
+
 class App extends Component {
   render() {
     const { todoList /*, visibilityFilter*/ } = this.props;
     const { addTodo, deleteTodo, toggleTodo } = this.props.todoListActions;
     // const { setVisibilityFilter } = this.props.visibilityFilterActions;
 
-    return <div>
-      <TodoList todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>
-      {/*<VisibilityFilter setVisibilityFilter={setVisibilityFilter}></VisibilityFilter>*/}
-    </div>
+    return <MuiThemeProvider muiTheme={muiTheme}>
+        <TodoList todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>
+        {/*<VisibilityFilter setVisibilityFilter={setVisibilityFilter}></VisibilityFilter>*/}
+      </MuiThemeProvider>
   }
 }
 

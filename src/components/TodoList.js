@@ -1,5 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import ReactDOM from 'react-dom';
+import TodoItem from './TodoItem';
+
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 //todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}
 
@@ -7,7 +11,9 @@ export default class TodoList extends Component {
 
   onAddTodoButtonClick = e => {
     e.preventDefault();
-    let todoInput = ReactDOM.findDOMNode(this.refs.newTodo);
+    let todoInput = this.refs.newTodo;
+
+    console.log(todoInput);
 
     if (todoInput.value.trim() === '') return; 
 
@@ -23,17 +29,20 @@ export default class TodoList extends Component {
     const { todos, deleteTodo, toggleTodo } = this.props;
 
     return <div className='input-todo'>
-      <input type='text'
+      <TextField
+        hintText='Enter what you need to do'
+        type='text'
         defaultValue=''
-        placeholder='Enter what you need to do'
-        ref='newTodo'>
-      </input>{'   '}
-      <button onClick={this.onAddTodoButtonClick}>Add todo</button>
+        ref='newTodo'
+      />{'   '}
+      <RaisedButton label='Add todo' primary={true} onClick={this.onAddTodoButtonClick} />
       <ul className='todos'>
-        { todos.map((todo, index) => <li key={index} className='todos__item'>
-          <span className={ 'todo-text ' + (todo.completed? 'completed' : '') } onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
-          {'   '}<button onClick={() => deleteTodo(todo.id)}>Delete</button>
-          </li>) }
+        { todos.map((todo, index) => <TodoItem id={todo.id} 
+          text={todo.text} 
+          completed={todo.completed} 
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+          key={index}></TodoItem>) }
       </ul>
     </div>
   }
