@@ -1,0 +1,26 @@
+.button {
+  border: 1px solid #222;
+  background-color: #fea;
+}
+
+.todos {
+  padding: 0px;
+  border: 1px solid #aaa;
+}
+
+
+.todos__item {
+  list-style-type: none;
+  padding: 10px;
+  margin: 5px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+}
+
+.todo-text {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
