@@ -38,9 +38,12 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "autoprefixer": "6.3.6",
     "babel-polyfill": "^6.9.0",
     "babel-runtime": "^6.9.0",
     "material-ui": "0.15.0",
+    "postcss-loader": "0.9.1",
+    "precss": "1.4.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "4.4.5",
@@ -48,6 +51,7 @@
     "redux": "3.5.2",
     "redux-logger": "2.6.1",
     "redux-thunk": "2.1.0",
+    "style-loader": "0.13.1",
     "webpack": "^1.13.1"
   }
 }
