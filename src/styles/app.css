@@ -5,16 +5,16 @@
 
 .todos {
   padding: 0px;
-  border: 1px solid #aaa;
 }
 
+.delete-button {
+  cursor: pointer;
+}
 
 .todos__item {
   list-style-type: none;
-  padding: 10px;
-  margin: 5px;
-  background-color: #eee;
-  border: 1px solid #aaa;
+  margin: 0;
+  padding: 0;
 }
 
 .todo-text {

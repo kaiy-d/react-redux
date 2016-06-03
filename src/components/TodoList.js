@@ -5,20 +5,25 @@ import TodoItem from './TodoItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
+const styleTextField = {
+  margin: 20
+};
+
+
 //todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}
 
 export default class TodoList extends Component {
 
   onAddTodoButtonClick = e => {
     e.preventDefault();
-    let todoInput = this.refs.newTodo;
+    let todoInput = this.refs['newTodo'];
 
     console.log(todoInput);
 
-    if (todoInput.value.trim() === '') return; 
+    // if (todoInput.getValue().trim() === '') return; 
 
-    this.props.addTodo(todoInput.value);
-    todoInput.value = '';
+    this.props.addTodo(todoInput.getValue());
+    // todoInput.value = '';
   }
 
   componentDidMount() {
@@ -34,7 +39,8 @@ export default class TodoList extends Component {
         type='text'
         defaultValue=''
         ref='newTodo'
-      />{'   '}
+        style={styleTextField}
+      />
       <RaisedButton label='Add todo' primary={true} onClick={this.onAddTodoButtonClick} />
       <ul className='todos'>
         { todos.map((todo, index) => <TodoItem id={todo.id} 
