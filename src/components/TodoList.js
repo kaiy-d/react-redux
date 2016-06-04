@@ -14,6 +14,12 @@ const styleTextField = {
 
 export default class TodoList extends Component {
 
+  onKeyDownInput = e => {
+    if (e.keyCode === 13) {
+      this.onAddTodoButtonClick(e);
+    }
+  }
+
   onAddTodoButtonClick = e => {
     e.preventDefault();
     let todoInput = this.refs['newTodo'];
@@ -23,7 +29,7 @@ export default class TodoList extends Component {
     // if (todoInput.getValue().trim() === '') return; 
 
     this.props.addTodo(todoInput.getValue());
-    // todoInput.value = '';
+    todoInput.setValue('');
   }
 
   componentDidMount() {
@@ -35,6 +41,7 @@ export default class TodoList extends Component {
 
     return <div className='input-todo'>
       <TextField
+        onKeyDown={this.onKeyDownInput}
         hintText='Enter what you need to do'
         type='text'
         defaultValue=''

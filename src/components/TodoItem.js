@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 import DeleteSweep from 'material-ui/svg-icons/content/delete-sweep';
 
 const style = {
+  width: 400,
   margin: 10,
   padding: 10,
   textAlign: 'center',
