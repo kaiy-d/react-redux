@@ -4,6 +4,7 @@ import TodoInput from './TodoInput';
 import Paper from 'material-ui/Paper';
 
 const style = {
+  width: 440,
   margin: '0 auto',
   padding: 10,
   textAlign: 'left',
