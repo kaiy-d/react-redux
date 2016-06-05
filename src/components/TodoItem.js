@@ -1,14 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 // import ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
-import DeleteSweep from 'material-ui/svg-icons/content/delete-sweep';
+import DeleteForever from 'material-ui/svg-icons/action/delete-forever';
+import { red500 } from 'material-ui/styles/colors';
 
 const style = {
   width: 400,
   margin: 10,
   padding: 10,
-  textAlign: 'center',
+  textAlign: 'left',
   display: 'block'
+};
+
+const iconStyle = {
+  float: 'right',
+  marginTop: -2
 };
 
 export default class TodoItem extends Component {
@@ -21,7 +27,10 @@ export default class TodoItem extends Component {
         zDepth={2}>
         <span className={ 'todo-text ' + (completed? 'completed' : '') } 
         onClick={() => toggleTodo(id)}>{text}</span>{'   '}
-        <DeleteSweep onClick={() => deleteTodo(id)} className='delete-button'></DeleteSweep>
+        <DeleteForever onClick={() => deleteTodo(id)} 
+          className='delete-button'
+          style={iconStyle}
+          hoverColor={red500}></DeleteForever>
       </Paper>
     </li>
   }
