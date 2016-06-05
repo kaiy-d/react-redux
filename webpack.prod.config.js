@@ -33,11 +33,15 @@ module.exports = {
     loaders: [
       { 
         test: /\.js?$/,
-        loader: ['babel-loader'],
+        loader: 'babel-loader',
         include: [
           path.resolve(__dirname, "src")
         ],
         exclude: /node_modules/ 
+      },
+      {
+        test:   /\.css$/,
+        loader: 'css-loader'
       }
     ]
   }
