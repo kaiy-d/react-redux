@@ -1,7 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
 
 module.exports = {
   devtool: 'source-map',
@@ -12,7 +10,7 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js',
+    filename: 'app.js',
     publicPath: '/public/'
   },
 
@@ -35,20 +33,12 @@ module.exports = {
     loaders: [
       { 
         test: /\.js?$/,
-        loader: 'babel-loader',
+        loader: ['babel-loader'],
         include: [
           path.resolve(__dirname, "src")
         ],
         exclude: /node_modules/ 
-      },
-      { 
-        test:   /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader"
       }
     ]
-  },
-
-  postcss: function() {
-    return [autoprefixer, precss];
   }
 };
