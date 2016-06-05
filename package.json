@@ -8,6 +8,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/.bin/webpack --config ./webpack.prod.config.js --progress --colors",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
     "start": "node server.js"
   },
@@ -39,8 +40,8 @@
   "dependencies": {
     "babel-polyfill": "^6.9.0",
     "babel-runtime": "^6.9.0",
-    "css-loader": "0.23.1",
     "material-ui": "0.15.0",
+    "postcss-loader": "0.9.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "4.4.5",
