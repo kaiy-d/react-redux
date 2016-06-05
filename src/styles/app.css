@@ -1,3 +1,7 @@
+.wrapper {
+  text-align: center;
+}
+
 .button {
   border: 1px solid #222;
   background-color: #fea;
@@ -23,4 +27,8 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+.completed-paper {
+  background-color: #fce4ec;
 }

@@ -22,9 +22,9 @@ export default class TodoItem extends Component {
     const { id, completed, text, deleteTodo, toggleTodo } = this.props;
 
     return <li className='todos__item'>
-      <Paper className={ (completed? 'completed' : '') } 
+      <Paper className={ (completed? 'completed-paper' : '') } 
         style={style} 
-        zDepth={2}>
+        zDepth={1}>
         <span className={ 'todo-text ' + (completed? 'completed' : '') } 
         onClick={() => toggleTodo(id)}>{text}</span>{'   '}
         <DeleteForever onClick={() => deleteTodo(id)} 

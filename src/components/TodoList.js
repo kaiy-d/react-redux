@@ -1,6 +1,14 @@
 import React, { PropTypes, Component } from 'react';
 import TodoItem from './TodoItem';
 import TodoInput from './TodoInput';
+import Paper from 'material-ui/Paper';
+
+const style = {
+  margin: '0 auto',
+  padding: 10,
+  textAlign: 'left',
+  display: 'inline-block'
+};
 
 //todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}
 
@@ -9,7 +17,9 @@ export default class TodoList extends Component {
   render() {
     const { todos, deleteTodo, toggleTodo, addTodo } = this.props;
 
-    return <div className='input-todo'>
+    return <Paper 
+        style={style} 
+        zDepth={2}>
       <TodoInput addTodo={addTodo}/>
       <ul className='todos'>
         { todos.map((todo, index) => <TodoItem id={todo.id} 
@@ -19,7 +29,7 @@ export default class TodoList extends Component {
           toggleTodo={toggleTodo}
           key={index}></TodoItem>) }
       </ul>
-    </div>
+    </Paper>
   }
 }
 

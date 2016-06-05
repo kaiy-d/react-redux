@@ -19,8 +19,10 @@ class App extends Component {
     // const { setVisibilityFilter } = this.props.visibilityFilterActions;
 
     return <MuiThemeProvider muiTheme={muiTheme}>
-        <TodoList todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>
-        {/*<VisibilityFilter setVisibilityFilter={setVisibilityFilter}></VisibilityFilter>*/}
+        <div className='wrapper'>
+          <TodoList todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>
+          {/*<VisibilityFilter setVisibilityFilter={setVisibilityFilter}></VisibilityFilter>*/}
+        </div>
       </MuiThemeProvider>
   }
 }
