@@ -23,6 +23,7 @@
 
 .todo-text {
   cursor: pointer;
+  overflow: hidden;
 }
 
 .completed {

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import TodoList from '../components/TodoList';
-// import VisibilityFilter from '../components/VisibilityFilter';
 import * as todoListActions from '../actions/TodoListActions';
-// import * as visibilityFilterActions from '../actions/visibilityFilterActions';
+import * as visibilityFilterActions from '../actions/VisibilityFilterActions';
 
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,14 +13,20 @@ const muiTheme = getMuiTheme(lightBaseTheme);
 
 class App extends Component {
   render() {
-    const { todoList /*, visibilityFilter*/ } = this.props;
+    const { todoList, visibilityFilter } = this.props;
     const { addTodo, deleteTodo, toggleTodo } = this.props.todoListActions;
-    // const { setVisibilityFilter } = this.props.visibilityFilterActions;
+    const { setVisibilityFilter } = this.props.visibilityFilterActions;
 
     return <MuiThemeProvider muiTheme={muiTheme}>
         <div className='wrapper'>
-          <TodoList todos={todoList} addTodo={addTodo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>
-          {/*<VisibilityFilter setVisibilityFilter={setVisibilityFilter}></VisibilityFilter>*/}
+          <TodoList 
+            todos={todoList} 
+            addTodo={addTodo} 
+            deleteTodo={deleteTodo} 
+            toggleTodo={toggleTodo}
+            setVisibilityFilter={setVisibilityFilter}
+            visibilityFilter={visibilityFilter}
+            ></TodoList>
         </div>
       </MuiThemeProvider>
   }
@@ -29,15 +34,15 @@ class App extends Component {
 
 function mapStateToProps (state) {
   return {
-    todoList: state.todoList
-    // visibilityFilter: state.visibilityFilter
+    todoList: state.todoList,
+    visibilityFilter: state.visibilityFilter
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    todoListActions: bindActionCreators(todoListActions, dispatch)
-    // visibilityFilterActions: bindActionCreators(visibilityFilterActions, dispatch)
+    todoListActions: bindActionCreators(todoListActions, dispatch),
+    visibilityFilterActions: bindActionCreators(visibilityFilterActions, dispatch)
   };
 }
 
