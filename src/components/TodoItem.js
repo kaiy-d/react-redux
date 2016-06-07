@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 // import ReactDOM from 'react-dom';
 import Paper from 'material-ui/Paper';
 import DeleteForever from 'material-ui/svg-icons/action/delete-forever';
-import { red500 } from 'material-ui/styles/colors';
+import { red500, grey400 } from 'material-ui/styles/colors';
 
 const style = {
   width: 460,
@@ -30,7 +30,8 @@ export default class TodoItem extends Component {
         <DeleteForever onClick={() => deleteTodo(id)} 
           className='delete-button'
           style={iconStyle}
-          hoverColor={red500}></DeleteForever>
+          hoverColor={red500}
+          color={grey400}></DeleteForever>
       </Paper>
     </li>
   }

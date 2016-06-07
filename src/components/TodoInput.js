@@ -5,7 +5,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 const styleTextField = {
-  margin: 40
+  marginTop: 15,
+  marginBottom: 15,
+  marginRight: 40,
+  marginLeft: 40
 };
 
 export default class TodoInput extends Component {
